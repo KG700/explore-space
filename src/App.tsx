@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import axios from 'axios';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component<{}, { rockets: any[] }> {
+
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      rockets: []
+    }
+  }
+
+  componentDidMount () {
+    axios.get('https://api.spacexdata.com/v3/rockets')
+        .then(response => {
+          this.setState({ rockets: response.data })
+          // console.log(response);
+        });
+  };
+
+  render () {
+    const rockets = this.state.rockets.map(rocket => {
+      return (<li key={rocket.id}>{rocket.rocket_name}</li>) 
+      }
+    )
+    return (
+      <div className="App">
+        <ul>
+          {rockets}
+        </ul>
+      </div>
+    );
+  }
 }
 
 export default App;
