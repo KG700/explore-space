@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import Rocket from './Rocket';
+
 import './App.css';
 
 class App extends Component<{}, { rockets: any[] }> {
@@ -22,7 +24,7 @@ class App extends Component<{}, { rockets: any[] }> {
 
   render () {
     const rockets = this.state.rockets.map(rocket => {
-      return (<li key={rocket.id}>{rocket.rocket_name}</li>) 
+      return (<Rocket id={rocket.id} name={rocket.rocket_name} />) 
       }
     )
     return (
