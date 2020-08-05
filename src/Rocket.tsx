@@ -1,11 +1,12 @@
 import React from 'react';
 
-type RocketProps = {
+type Props = {
     id: number,
-    name: string
+    name: string,
+    clicked: (event: React.MouseEvent<HTMLElement>) => void
 }
 
-const Rocket = ({ id, name }: RocketProps) => 
-    <li key={id}> { name } </li>
+const Rocket = ({ id, name, clicked }: Props) => 
+    <li key={id} onClick={clicked}> { name } </li>
 
 export default Rocket;
