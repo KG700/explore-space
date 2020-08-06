@@ -8,7 +8,7 @@ import './App.css';
 
 type AppState = {
   rockets: any[],
-  selectedRocket: number | null
+  selectedRocket: string | null
 }
 
 class App extends Component<{}, AppState> {
@@ -22,25 +22,26 @@ class App extends Component<{}, AppState> {
   }
 
   componentDidMount () {
-    axios.get('https://api.spacexdata.com/v3/rockets')
+    axios.get('/rockets')
         .then(response => {
           this.setState({ rockets: response.data })
           // console.log(response);
         });
   };
 
-  rocketSelectedHandler = (id: number) => {
+  rocketSelectedHandler = (id: string) => {
     // console.log(`selected id: ${id}`)
     this.setState({ selectedRocket: id });
   }
 
   render () {
     const rockets = this.state.rockets.map(rocket => {
+      console.log(rocket)
       return (
         <Rocket 
           id={rocket.id} 
           name={rocket.rocket_name}
-          clicked={() => this.rocketSelectedHandler(rocket.id) }
+          clicked={() => this.rocketSelectedHandler(rocket.rocket_id) }
         />) 
       }
     )
