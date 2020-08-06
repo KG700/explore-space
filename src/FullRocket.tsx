@@ -23,7 +23,6 @@ class FullRocket extends Component<Props, State> {
   }
 
   componentDidUpdate () {
-    console.log(this.props.id)
     if (this.props.id) {
         if (this.state.rocket && this.state.rocket.rocket_id !== this.props.id){
             axios.get('/rockets/' + this.props.id)

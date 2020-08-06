@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
 import Rocket from './Rocket';
@@ -6,8 +7,11 @@ import FullRocket from './FullRocket';
 
 import './App.css';
 
-type AppState = {
+type Props = {
   rockets: any[],
+}
+
+type AppState = {
   selectedRocket: string | null
 }
 
@@ -25,18 +29,15 @@ class App extends Component<{}, AppState> {
     axios.get('/rockets')
         .then(response => {
           this.setState({ rockets: response.data })
-          // console.log(response);
         });
   };
 
   rocketSelectedHandler = (id: string) => {
-    // console.log(`selected id: ${id}`)
     this.setState({ selectedRocket: id });
   }
 
   render () {
-    const rockets = this.state.rockets.map(rocket => {
-      console.log(rocket)
+    const rockets = this.props.rockets.map(rocket => {
       return (
         <Rocket 
           id={rocket.id} 
@@ -63,4 +64,10 @@ class App extends Component<{}, AppState> {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    rockets: state.rockets
+  };
+}
+
+export default connect(mapStateToProps)(App);
