@@ -1,9 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import reducer from './store/reducer';
 import axios from 'axios';
+
+const store = createStore(reducer);
 
 axios.defaults.baseURL = 'https://api.spacexdata.com/v3'
 
