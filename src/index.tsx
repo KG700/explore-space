@@ -9,7 +9,7 @@ import reducer from './store/reducer';
 import { Provider } from 'react-redux';
 import axios from 'axios';
 
-const store = createStore(reducer);
+const store = createStore(reducer, (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__());
 
 axios.defaults.baseURL = 'https://api.spacexdata.com/v3'
 
