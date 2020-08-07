@@ -41,6 +41,7 @@ class App extends Component<Props> {
 
     return (
       <div className="App">
+        <button>Rockets</button>
         <ul>
           {rockets}
           {
@@ -65,6 +66,7 @@ const mapStateToProps = (state: IState) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
+    showRockets: () => dispatch(actionCreators.showRockets()),
     onSelectedRocket: (id: string) => dispatch(actionCreators.select(id))
   };
 }

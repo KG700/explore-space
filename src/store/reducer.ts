@@ -16,12 +16,15 @@ const initialState: IState = {
 }
 
 const reducer = (state = initialState, action: Action) => {
-    if(action.type === actionTypes.SELECT) {
+    if (action.type === actionTypes.SELECT) {
         const selectedRocket = state.rockets.filter((rocket) => rocket.rocket_name === action.id)[0]
         return {
             ...state,
             selectedRocket: selectedRocket
         }
+    }
+    if (action.type === actionTypes.SHOW_ROCKETS) {
+        return state
     }
     return state;
 }
