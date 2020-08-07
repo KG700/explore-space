@@ -1,16 +1,21 @@
 // import { Action } from 'redux';
 
-// export interface IState {
-//     rockets: any[],
-//     selectedRocket: any
-// }
-
-const initialState = {
-    rockets: [],
-    selectedRocket: {}
+export interface IState {
+    rockets: any[],
+    selectedRocket: any
 }
 
-const reducer = (state = initialState, action) => {
+interface Action {
+    type: string,
+    id?: string
+}
+
+const initialState: IState = {
+    rockets: [{id: 'falcon1'}, {id: 'falcon2'}],
+    selectedRocket: {id: 'falcon2'}
+}
+
+const reducer = (state = initialState, action: Action) => {
     console.log(action);
     console.log(action.type);
     console.log(action.type === 'SELECT');

@@ -40,7 +40,7 @@ class App extends Component<Props> {
     axios.get('/rockets')
         .then(response => {
           console.log(response.data)
-          this.setState({ rockets: response.data })
+          // this.setState({ rockets: response.data })
         });
   };
 
@@ -79,7 +79,7 @@ class App extends Component<Props> {
 }
 
 const mapStateToProps = (state: IState) => {
-  console.log('[App] mapStateToProps ' + state)
+  console.log('[App] mapStateToProps ' + state.rockets)
   return {
     rockets: state.rockets,
     selectedRocket: state.selectedRocket
