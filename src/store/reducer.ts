@@ -1,5 +1,3 @@
-// import { Action } from 'redux';
-
 export interface IState {
     rockets: any[],
     selectedRocket: any
@@ -16,10 +14,6 @@ const initialState: IState = {
 }
 
 const reducer = (state = initialState, action: Action) => {
-    console.log(action);
-    console.log(action.type);
-    console.log(action.type === 'SELECT');
-    console.log(state);
     if(action.type === 'SELECT') {
         const selectedRocket = state.rockets.filter((rocket) => rocket.rocket_name === action.id)[0]
         return {
@@ -27,7 +21,6 @@ const reducer = (state = initialState, action: Action) => {
             selectedRocket: selectedRocket
         }
     }
-    
     return state;
 }
 

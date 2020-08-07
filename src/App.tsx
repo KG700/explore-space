@@ -16,25 +16,7 @@ type Props = {
   onSelectedRocket: (arg0: string) => void
 }
 
-// interface IState {
-//     rockets: any[],
-//     selectedRocket: any
-// }
-
-// type Dispatch<S> = Redux.Dispatch<S>;
-
-// type State = {
-// }
-
 class App extends Component<Props> {
-
-  // constructor(props: {}) {
-  //   super(props);
-  //   this.state = {
-  //     rockets: [],
-  //     selectedRocket: null
-  //   }
-  // }
 
   componentDidMount () {
     axios.get('/rockets')
@@ -44,13 +26,7 @@ class App extends Component<Props> {
         });
   };
 
-  // rocketSelectedHandler = (id: string) => {
-  //   console.log('updating selected rocket')
-  //   // this.setState({ selectedRocket: id });
-  // }
-
   render () {
-    console.log('[App]' + this.props.selectedRocket)
     const rockets = this.props.rockets.map(rocket => {
       return (
         <Rocket 
@@ -80,7 +56,6 @@ class App extends Component<Props> {
 }
 
 const mapStateToProps = (state: IState) => {
-  console.log('[App] mapStateToProps ' + state)
   return {
     rockets: state.rockets,
     selectedRocket: state.selectedRocket
