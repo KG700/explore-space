@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// import { IState } from './store/reducer';
-import { Dispatch } from 'redux';
+import { IState } from './store/reducer';
+// import { Dispatch } from 'redux';
 import axios from 'axios';
 
 import Rocket from './Rocket';
@@ -13,13 +13,13 @@ import './App.css';
 type Props = {
   rockets: any[],
   selectedRocket: any,
-  onSelectedRocket: (arg0: string) => void
+  // onSelectedRocket: (arg0: string) => void
 }
 
-interface IState {
-    rockets: any[],
-    selectedRocket: any
-}
+// interface IState {
+//     rockets: any[],
+//     selectedRocket: any
+// }
 
 // type Dispatch<S> = Redux.Dispatch<S>;
 
@@ -54,9 +54,10 @@ class App extends Component<Props> {
     const rockets = this.props.rockets.map(rocket => {
       return (
         <Rocket 
+          key={rocket.id}
           id={rocket.id} 
           name={rocket.rocket_name}
-          clicked={() => this.props.onSelectedRocket(rocket.rocket_id) }
+          // clicked={() => this.props.onSelectedRocket(rocket.rocket_id) }
         />) 
       }
     )
@@ -79,17 +80,17 @@ class App extends Component<Props> {
 }
 
 const mapStateToProps = (state: IState) => {
-  console.log('[App] mapStateToProps ' + state.rockets)
+  console.log('[App] mapStateToProps ' + state)
   return {
     rockets: state.rockets,
     selectedRocket: state.selectedRocket
   };
 }
 
-const mapDispatchToProps = (dispatch: Dispatch) => {
-  return {
-    onSelectedRocket: (id: string) => dispatch({ type: 'SELECT', id: id })
-  };
-}
+// const mapDispatchToProps = (dispatch: Dispatch) => {
+//   return {
+//     onSelectedRocket: (id: string) => dispatch({ type: 'SELECT', id: id })
+//   };
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

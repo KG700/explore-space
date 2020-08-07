@@ -34,7 +34,10 @@ class FullRocket extends Component<Props, State> {
   }
 
  render () {
-     return <h1>{ this.props.id }</h1>
+     console.log('[FullRocket]' + this.props.id)
+     return (
+        <h1>Hello</h1>
+     )
  }   
 }
 
