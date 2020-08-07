@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { IState } from './store/reducer';
-// import { Dispatch } from 'redux';
+import { Dispatch } from 'redux';
 import axios from 'axios';
 
 import Rocket from './Rocket';
@@ -13,7 +13,7 @@ import './App.css';
 type Props = {
   rockets: any[],
   selectedRocket: any,
-  // onSelectedRocket: (arg0: string) => void
+  onSelectedRocket: (arg0: string) => void
 }
 
 // interface IState {
@@ -44,10 +44,10 @@ class App extends Component<Props> {
         });
   };
 
-  rocketSelectedHandler = (id: string) => {
-    console.log('updating selected rocket')
-    // this.setState({ selectedRocket: id });
-  }
+  // rocketSelectedHandler = (id: string) => {
+  //   console.log('updating selected rocket')
+  //   // this.setState({ selectedRocket: id });
+  // }
 
   render () {
     console.log('[App]' + this.props.selectedRocket)
@@ -57,7 +57,7 @@ class App extends Component<Props> {
           key={rocket.id}
           id={rocket.id} 
           name={rocket.rocket_name}
-          // clicked={() => this.props.onSelectedRocket(rocket.rocket_id) }
+          clicked={() => this.props.onSelectedRocket(rocket.rocket_name) }
         />) 
       }
     )
@@ -87,10 +87,10 @@ const mapStateToProps = (state: IState) => {
   };
 }
 
-// const mapDispatchToProps = (dispatch: Dispatch) => {
-//   return {
-//     onSelectedRocket: (id: string) => dispatch({ type: 'SELECT', id: id })
-//   };
-// }
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    onSelectedRocket: (id: string) => dispatch({ type: 'SELECT', id: id })
+  };
+}
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

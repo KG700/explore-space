@@ -21,7 +21,7 @@ const reducer = (state = initialState, action: Action) => {
     console.log(action.type === 'SELECT');
     console.log(state);
     if(action.type === 'SELECT') {
-        const selectedRocket = state.rockets.filter((rocket) => rocket.rocket_id !== action.id)
+        const selectedRocket = state.rockets.filter((rocket) => rocket.rocket_name === action.id)[0]
         return {
             ...state,
             selectedRocket: selectedRocket
