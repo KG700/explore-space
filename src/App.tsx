@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actionCreators from './store/actions';
 
 import { IState } from './store/reducer';
 import { Dispatch } from 'redux';
@@ -64,7 +65,7 @@ const mapStateToProps = (state: IState) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    onSelectedRocket: (id: string) => dispatch({ type: 'SELECT', id: id })
+    onSelectedRocket: (id: string) => dispatch(actionCreators.select(id))
   };
 }
 

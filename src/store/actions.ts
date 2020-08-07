@@ -1,6 +1,8 @@
+export const SELECT = 'SELECT';
+
 export const select = ( id: string ) => {
     return {
-        type: 'SELECT',
+        type: SELECT,
         id: id
     }
-}
+};

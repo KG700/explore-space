@@ -1,3 +1,5 @@
+import * as actionTypes from './actions';
+
 export interface IState {
     rockets: any[],
     selectedRocket: any
@@ -14,7 +16,7 @@ const initialState: IState = {
 }
 
 const reducer = (state = initialState, action: Action) => {
-    if(action.type === 'SELECT') {
+    if(action.type === actionTypes.SELECT) {
         const selectedRocket = state.rockets.filter((rocket) => rocket.rocket_name === action.id)[0]
         return {
             ...state,
