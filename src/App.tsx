@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+// import { IState } from './store/reducer';
+import { Dispatch } from 'redux';
 import axios from 'axios';
 
 import Rocket from './Rocket';
@@ -9,40 +12,51 @@ import './App.css';
 
 type Props = {
   rockets: any[],
+  selectedRocket: any,
+  onSelectedRocket: (arg0: string) => void
 }
 
-type AppState = {
-  selectedRocket: string | null
+interface IState {
+    rockets: any[],
+    selectedRocket: any
 }
 
-class App extends Component<{}, AppState> {
+// type Dispatch<S> = Redux.Dispatch<S>;
 
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      rockets: [],
-      selectedRocket: null
-    }
-  }
+// type State = {
+// }
+
+class App extends Component<Props> {
+
+  // constructor(props: {}) {
+  //   super(props);
+  //   this.state = {
+  //     rockets: [],
+  //     selectedRocket: null
+  //   }
+  // }
 
   componentDidMount () {
     axios.get('/rockets')
         .then(response => {
+          console.log(response.data)
           this.setState({ rockets: response.data })
         });
   };
 
   rocketSelectedHandler = (id: string) => {
-    this.setState({ selectedRocket: id });
+    console.log('updating selected rocket')
+    // this.setState({ selectedRocket: id });
   }
 
   render () {
+    console.log('[App]' + this.props.selectedRocket)
     const rockets = this.props.rockets.map(rocket => {
       return (
         <Rocket 
           id={rocket.id} 
           name={rocket.rocket_name}
-          clicked={() => this.rocketSelectedHandler(rocket.rocket_id) }
+          clicked={() => this.props.onSelectedRocket(rocket.rocket_id) }
         />) 
       }
     )
@@ -52,9 +66,9 @@ class App extends Component<{}, AppState> {
         <ul>
           {rockets}
           {
-            this.state.selectedRocket
+            this.props.selectedRocket
             ?
-              <FullRocket id={this.state.selectedRocket} />
+              <FullRocket id={this.props.selectedRocket} />
             :
               null
           }
@@ -64,10 +78,18 @@ class App extends Component<{}, AppState> {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: IState) => {
+  console.log('[App] mapStateToProps ' + state)
   return {
-    rockets: state.rockets
+    rockets: state.rockets,
+    selectedRocket: state.selectedRocket
   };
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    onSelectedRocket: (id: string) => dispatch({ type: 'SELECT', id: id })
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
