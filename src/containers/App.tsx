@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actionCreators from '../store/actions';
-
-import { IState } from '../store/reducer';
 import { Action } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
+import * as actionCreators from '../store/actions';
+import { IState } from '../store/reducer';
 import Rocket from '../components/Rocket';
 import FullRocket from '../components/FullRocket';
 
@@ -19,10 +18,6 @@ type Props = {
 }
 
 class App extends Component<Props> {
-
-  componentDidMount () {
-
-  };
 
   render () {
     const rockets = this.props.rockets.map(rocket => {

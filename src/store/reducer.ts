@@ -12,8 +12,8 @@ interface Action {
 }
 
 const initialState: IState = {
-    rockets: [{id: 0, rocket_name: 'falcon1'}, {id: 1, rocket_name: 'falcon2'}],
-    selectedRocket: {id: 1, rocket_name: 'falcon2'}
+    rockets: [],
+    selectedRocket: {}
 }
 
 const reducer = (state = initialState, action: Action) => {
