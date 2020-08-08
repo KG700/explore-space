@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import * as actionCreators from './store/actions';
 
 import { IState } from './store/reducer';
-import { Dispatch } from 'redux';
-import axios from 'axios';
+import { Dispatch, Action } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
 
 import Rocket from './Rocket';
 import FullRocket from './FullRocket';
@@ -20,11 +20,7 @@ type Props = {
 class App extends Component<Props> {
 
   componentDidMount () {
-    axios.get('/rockets')
-        .then(response => {
-          console.log(response.data)
-          // this.setState({ rockets: response.data })
-        });
+
   };
 
   render () {
@@ -64,7 +60,7 @@ const mapStateToProps = (state: IState) => {
   };
 }
 
-const mapDispatchToProps = (dispatch: Dispatch) => {
+const mapDispatchToProps = (dispatch: ThunkDispatch<IState, void, Action>) => {
   return {
     showRockets: () => dispatch(actionCreators.showRockets()),
     onSelectedRocket: (id: string) => dispatch(actionCreators.select(id))
