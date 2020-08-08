@@ -6,7 +6,6 @@ import { ThunkDispatch } from 'redux-thunk';
 import * as actionCreators from '../store/actions';
 import { IState, SpaceShips } from '../store/reducer';
 import SpaceShipList from '../components/SpaceShipList';
-// import Dragon from '../components/Dragon';
 import FullRocket from '../components/FullRocket';
 
 import './App.css';
@@ -24,43 +23,43 @@ type Props = {
 class App extends Component<Props> {
 
   render () {
-    const rockets = this.props.rockets.map(rocket => {
-      return (
-        <SpaceShipList 
-          key={rocket.id}
-          id={rocket.id} 
-          name={rocket.rocket_name}
-          clicked={() => this.props.onSelectedRocket(rocket.rocket_name) }
-        />) 
-      }
-    )
-
-    const dragons = this.props.dragons.map(dragon => {
-      return (
-        <SpaceShipList 
-          key={dragon.id}
-          id={dragon.id} 
-          name={dragon.name}
-          clicked={() => {} }
-        />) 
-      }
-    )
+    let spaceShipList: JSX.Element[] | JSX.Element;
+    switch ( this.props.selected) {
+      case SpaceShips.ROCKET:
+        spaceShipList = this.props.rockets.map(rocket => {
+          return (
+            <SpaceShipList 
+              key={rocket.id}
+              id={rocket.id} 
+              name={rocket.rocket_name}
+              clicked={() => this.props.onSelectedRocket(rocket.rocket_name) }
+            />
+          ) 
+        })
+        break;
+      case SpaceShips.DRAGON:
+        spaceShipList = this.props.dragons.map(dragon => {
+          return (
+            <SpaceShipList 
+              key={dragon.id}
+              id={dragon.id} 
+              name={dragon.name}
+              clicked={() => {} }
+            />
+          ) 
+        })
+        break;
+      case SpaceShips.BLANK:
+        spaceShipList = <p>Select a type of spaceship to find out more</p>
+        break;
+    };
 
     return (
       <div className="App">
         <button onClick={this.props.showRockets}>Rockets</button>
         <button onClick={this.props.showDragons}>Dragons</button>
         <ul>
-          {this.props.selected === SpaceShips.ROCKET
-          ?
-            rockets
-          :
-            this.props.selected === SpaceShips.DRAGON
-            ?
-              dragons
-            :
-              null
-          }
+            { spaceShipList }
           {
             this.props.selectedRocket
             ?
