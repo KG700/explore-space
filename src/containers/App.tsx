@@ -61,9 +61,13 @@ class App extends Component<Props> {
         <ul>
             { spaceShipList }
           {
-            this.props.selectedRocket
+            this.props.selected === SpaceShips.ROCKET
             ?
-              <FullRocket id={this.props.selectedRocket} />
+              <FullRocket />
+            :
+            this.props.selected === SpaceShips.DRAGON
+            ?
+              null
             :
               null
           }

@@ -1,44 +1,30 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+
+import { IState } from '../store/reducer';
 
 type Props = {
-    id: string
+    rocket: any,
 }
 
-type State = {
-    rocket: {
-        rocket_id: string
-    }
-}
-
-class FullRocket extends Component<Props, State> {
-
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      rocket: {
-          rocket_id: ""
-      }
-    }
-  }
-
-  componentDidUpdate () {
-    if (this.props.id) {
-        if (this.state.rocket && this.state.rocket.rocket_id !== this.props.id){
-            axios.get('/rockets/' + this.props.id)
-                .then(response => {
-                    this.setState({ rocket: response.data });
-                });
-        }
-    }
-  }
+class FullRocket extends Component<Props> {
 
  render () {
-     console.log('[FullRocket]' + this.props.id)
      return (
-        <h1>Hello</h1>
+        <div>
+            <h1>{this.props.rocket.rocket_name}</h1>
+            <p>{this.props.rocket.description}</p>
+            <h2>Quick Facts</h2>
+     <p>Cost per launch: ${this.props.rocket.cost_per_launch}</p>
+        </div>
      )
  }   
 }
 
-export default FullRocket;
+const mapStateToProps = (state: IState) => {
+    return {
+      rocket: state.selectedRocket
+    };
+  }
+
+export default connect(mapStateToProps)(FullRocket);
