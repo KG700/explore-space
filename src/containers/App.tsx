@@ -14,6 +14,7 @@ type Props = {
   rockets: any[],
   selectedRocket: any,
   showRockets: () => void,
+  showDragons: () => void,
   onSelectedRocket: (arg0: string) => void
 }
 
@@ -34,6 +35,7 @@ class App extends Component<Props> {
     return (
       <div className="App">
         <button onClick={this.props.showRockets}>Rockets</button>
+        <button onClick={this.props.showDragons}>Dragons</button>
         <ul>
           {rockets}
           {
@@ -52,6 +54,7 @@ class App extends Component<Props> {
 const mapStateToProps = (state: IState) => {
   return {
     rockets: state.rockets,
+    dragons: state.dragons,
     selectedRocket: state.selectedRocket
   };
 }
@@ -59,6 +62,7 @@ const mapStateToProps = (state: IState) => {
 const mapDispatchToProps = (dispatch: ThunkDispatch<IState, void, Action>) => {
   return {
     showRockets: () => dispatch(actionCreators.showRockets()),
+    showDragons: () => dispatch(actionCreators.showDragons()),
     onSelectedRocket: (id: string) => dispatch(actionCreators.select(id))
   };
 }

@@ -2,17 +2,20 @@ import * as actionTypes from './actions';
 
 export interface IState {
     rockets: any[],
+    dragons: any[],
     selectedRocket: any
 }
 
 interface Action {
     type: string,
     id?: string,
-    rockets?: any
+    rockets?: any,
+    dragons?: any
 }
 
 const initialState: IState = {
     rockets: [],
+    dragons: [],
     selectedRocket: {}
 }
 
@@ -28,6 +31,11 @@ const reducer = (state = initialState, action: Action) => {
             return {
                 ...state,
                 rockets: action.rockets
+            }
+        case actionTypes.SHOW_DRAGONS:
+            return {
+                ...state,
+                dragons: action.dragons
             }
 
     }
