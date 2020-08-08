@@ -6,6 +6,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import * as actionCreators from '../store/actions';
 import { IState, SpaceShips } from '../store/reducer';
 import Rocket from '../components/Rocket';
+import Dragon from '../components/Dragon';
 import FullRocket from '../components/FullRocket';
 
 import './App.css';
@@ -13,6 +14,7 @@ import './App.css';
 type Props = {
   selected: SpaceShips,
   rockets: any[],
+  dragons: any[],
   selectedRocket: any,
   showRockets: () => void,
   showDragons: () => void,
@@ -33,12 +35,32 @@ class App extends Component<Props> {
       }
     )
 
+    const dragons = this.props.dragons.map(dragon => {
+      return (
+        <Dragon 
+          key={dragon.id}
+          id={dragon.id} 
+          name={dragon.name}
+          // clicked={() => this.props.onSelectedRocket(rocket.rocket_name) }
+        />) 
+      }
+    )
+
     return (
       <div className="App">
         <button onClick={this.props.showRockets}>Rockets</button>
         <button onClick={this.props.showDragons}>Dragons</button>
         <ul>
-          {rockets}
+          {this.props.selected === SpaceShips.ROCKET
+          ?
+            rockets
+          :
+            this.props.selected === SpaceShips.DRAGON
+            ?
+              dragons
+            :
+              null
+          }
           {
             this.props.selectedRocket
             ?
