@@ -4,14 +4,14 @@ import { Action } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
 import * as actionCreators from '../store/actions';
-import { IState } from '../store/reducer';
+import { IState, SpaceShips } from '../store/reducer';
 import Rocket from '../components/Rocket';
 import FullRocket from '../components/FullRocket';
 
 import './App.css';
 
 type Props = {
-  selected: string,
+  selected: SpaceShips,
   rockets: any[],
   selectedRocket: any,
   showRockets: () => void,

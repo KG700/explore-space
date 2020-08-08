@@ -7,15 +7,17 @@ interface Action {
     dragons?: any
 }
 
+export enum SpaceShips { BLANK, ROCKET, DRAGON }
+
 export interface IState {
-    selected: string,
+    selected: SpaceShips,
     rockets: any[],
     dragons: any[],
     selectedRocket: any
 }
 
 const initialState: IState = {
-    selected: 'rocket',
+    selected: SpaceShips.BLANK,
     rockets: [],
     dragons: [],
     selectedRocket: {}
@@ -35,13 +37,13 @@ const reducer = (state = initialState, action: Action) => {
             return {
                 ...state,
                 rockets: action.rockets,
-                selected: 'rocket'
+                selected: SpaceShips.ROCKET
             }
         case actionTypes.SHOW_DRAGONS:
             return {
                 ...state,
                 dragons: action.dragons,
-                selected: 'dragon'
+                selected: SpaceShips.DRAGON
             }
 
     }
