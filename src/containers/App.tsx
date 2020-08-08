@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actionCreators from './store/actions';
+import * as actionCreators from '../store/actions';
 
-import { IState } from './store/reducer';
+import { IState } from '../store/reducer';
 import { Action } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
-import Rocket from './Rocket';
-import FullRocket from './FullRocket';
+import Rocket from '../components/Rocket';
+import FullRocket from '../components/FullRocket';
 
 import './App.css';
 
