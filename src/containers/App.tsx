@@ -11,6 +11,7 @@ import FullRocket from '../components/FullRocket';
 import './App.css';
 
 type Props = {
+  selected: string,
   rockets: any[],
   selectedRocket: any,
   showRockets: () => void,
@@ -53,6 +54,7 @@ class App extends Component<Props> {
 
 const mapStateToProps = (state: IState) => {
   return {
+    selected: state.selected,
     rockets: state.rockets,
     dragons: state.dragons,
     selectedRocket: state.selectedRocket
