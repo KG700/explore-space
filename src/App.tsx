@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from './store/actions';
 
 import { IState } from './store/reducer';
-import { Dispatch, Action } from 'redux';
+import { Action } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
 import Rocket from './Rocket';
@@ -14,6 +14,7 @@ import './App.css';
 type Props = {
   rockets: any[],
   selectedRocket: any,
+  showRockets: () => void,
   onSelectedRocket: (arg0: string) => void
 }
 
@@ -37,7 +38,7 @@ class App extends Component<Props> {
 
     return (
       <div className="App">
-        <button>Rockets</button>
+        <button onClick={this.props.showRockets}>Rockets</button>
         <ul>
           {rockets}
           {

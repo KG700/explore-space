@@ -7,7 +7,8 @@ export interface IState {
 
 interface Action {
     type: string,
-    id?: string
+    id?: string,
+    rockets?: any
 }
 
 const initialState: IState = {
@@ -24,7 +25,10 @@ const reducer = (state = initialState, action: Action) => {
         }
     }
     if (action.type === actionTypes.SHOW_ROCKETS) {
-        return state
+        return {
+            ...state,
+            rockets: action.rockets
+        }
     }
     return state;
 }
