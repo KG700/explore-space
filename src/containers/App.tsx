@@ -5,8 +5,8 @@ import { ThunkDispatch } from 'redux-thunk';
 
 import * as actionCreators from '../store/actions';
 import { IState, SpaceShips } from '../store/reducer';
-import Rocket from '../components/Rocket';
-import Dragon from '../components/Dragon';
+import SpaceShipList from '../components/SpaceShipList';
+// import Dragon from '../components/Dragon';
 import FullRocket from '../components/FullRocket';
 
 import './App.css';
@@ -26,7 +26,7 @@ class App extends Component<Props> {
   render () {
     const rockets = this.props.rockets.map(rocket => {
       return (
-        <Rocket 
+        <SpaceShipList 
           key={rocket.id}
           id={rocket.id} 
           name={rocket.rocket_name}
@@ -37,11 +37,11 @@ class App extends Component<Props> {
 
     const dragons = this.props.dragons.map(dragon => {
       return (
-        <Dragon 
+        <SpaceShipList 
           key={dragon.id}
           id={dragon.id} 
           name={dragon.name}
-          // clicked={() => this.props.onSelectedRocket(rocket.rocket_name) }
+          clicked={() => {} }
         />) 
       }
     )

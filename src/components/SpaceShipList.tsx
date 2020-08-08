@@ -6,7 +6,7 @@ type Props = {
     clicked: (event: React.MouseEvent<HTMLElement>) => void
 }
 
-const Rocket = ({ id, name, clicked }: Props) => 
+const SpaceShipList = ({ id, name, clicked }: Props) => 
     <li onClick={ clicked } > { name } </li>
 
-export default Rocket;
+export default SpaceShipList;
