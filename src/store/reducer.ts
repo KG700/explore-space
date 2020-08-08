@@ -24,8 +24,8 @@ const initialState: IState = {
 }
 
 const reducer = (state = initialState, action: Action) => {
-    console.log(state);
-    console.log(action)
+    // console.log(state);
+    // console.log(action)
     switch (action.type) {
         case actionTypes.SELECT:
             const selectedRocket = state.rockets.filter((rocket) => rocket.rocket_name === action.id)[0]
