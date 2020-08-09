@@ -11,6 +11,7 @@ import { Button, Row, Col } from 'antd';
 import { Layout, Menu } from 'antd';
 
 import './App.css';
+import DragonDetails from '../components/SpaceShipDetails/DragonDetails';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -50,6 +51,7 @@ class App extends Component<Props> {
         <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
           <SpaceShipList />
         </div>
+        <DragonDetails />
       </Content>
       <Footer style={{ textAlign: 'center' }}>Data from API: Space X</Footer>
     </Layout>

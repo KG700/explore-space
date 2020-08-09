@@ -1,5 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Action } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
+import * as actionCreators from '../../store/actions';
 
 import { IState } from '../../store/reducer';
 import { Modal, Button } from 'antd';
@@ -41,4 +44,10 @@ const mapStateToProps = (state: IState) => {
     };
   }
 
-export default connect(mapStateToProps)(DragonDetails);
+const mapDispatchToProps = (dispatch: ThunkDispatch<IState, void, Action>) => {
+    return {
+        onClickVisible: () => dispatch(actionCreators.visibleDragonDetail()),
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DragonDetails);

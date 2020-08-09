@@ -28,7 +28,7 @@ const initialState: IState = {
 }
 
 const reducer = (state = initialState, action: Action) => {
-
+    console.log(action.type)
     switch (action.type) {
         case actionTypes.SELECTED_ROCKET:
             const selectedRocket = state.rockets.filter((rocket) => rocket.rocket_id === action.id)[0]
@@ -42,7 +42,8 @@ const reducer = (state = initialState, action: Action) => {
             console.log(selectedDragon);
             return {
                 ...state,
-                selectedDragon: selectedDragon
+                selectedDragon: selectedDragon,
+                isVisibleDragonDetail: !state.isVisibleDragonDetail
             }
         case actionTypes.SHOW_ROCKETS:
             return {
@@ -56,6 +57,12 @@ const reducer = (state = initialState, action: Action) => {
                 dragons: action.dragons,
                 selected: SpaceShips.DRAGON
             }
+        // case actionTypes.VISIBLE_DRAGON_DETAIL:
+        //     console.log('updating visibility');
+        //     return {
+        //         ...state,
+        //         isVisibleDragonDetail: !state.isVisibleDragonDetail
+        //     }
 
     }
     return state;
