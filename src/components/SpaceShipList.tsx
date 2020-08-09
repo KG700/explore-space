@@ -10,25 +10,25 @@ type Props = {
     selected: SpaceShips,
     rockets: any[],
     dragons: any[],
-    // onSelectedRocket: (event: React.MouseEvent<HTMLElement>) => void
     onSelectedRocket: (arg0: string) => {}
+    onSelectedDragon: (arg0: string) => {}
 }
 
-const SpaceShipList = ({ selected, rockets, dragons, onSelectedRocket }: Props) => {
+const SpaceShipList = ({ selected, rockets, dragons, onSelectedRocket, onSelectedDragon }: Props) => {
     let spaceShipList: JSX.Element[] | null;
     spaceShipList = null;
     switch ( selected ) {
       case SpaceShips.ROCKET:
         spaceShipList = rockets.map(rocket => {
           return (
-            <li onClick={() => onSelectedRocket(rocket.rocket_id) } > { rocket.rocket_name } </li>
+            <li onClick={() => onSelectedRocket(rocket.rocket_id) }> { rocket.rocket_name } </li>
           ) 
         })
         break;
       case SpaceShips.DRAGON:
         spaceShipList = dragons.map(dragon => {
           return (
-            <li> { dragon.name } </li>
+            <li onClick={() => onSelectedDragon(dragon.id) }> { dragon.name } </li>
           ) 
         })
         break;
@@ -60,7 +60,8 @@ const mapStateToProps = (state: IState) => {
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<IState, void, Action>) => {
 return {
-    onSelectedRocket: (id: string) => dispatch(actionCreators.selectRocket(id))
+    onSelectedRocket: (id: string) => dispatch(actionCreators.selectedRocket(id)),
+    onSelectedDragon: (id: string) => dispatch(actionCreators.selectedDragon(id))
 };
 }
 
