@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { IState } from '../store/reducer';
+import { IState } from '../../store/reducer';
 
 type Props = {
     dragon: any,
 }
 
-const FullDragon = ({ dragon }: Props) => {
+const DragonDetails = ({ dragon }: Props) => {
     return (
         <div>
             <h1>{dragon.name}</h1>
@@ -23,4 +23,4 @@ const mapStateToProps = (state: IState) => {
     };
   }
 
-export default connect(mapStateToProps)(FullDragon);
+export default connect(mapStateToProps)(DragonDetails);

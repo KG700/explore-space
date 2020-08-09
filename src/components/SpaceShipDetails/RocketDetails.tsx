@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { IState } from '../store/reducer';
+import { IState } from '../../store/reducer';
 
 type Props = {
     rocket: any,
 }
 
-const FullRocket = ({ rocket }: Props) => {
+const RocketDetails = ({ rocket }: Props) => {
     return (
         <div>
             <h1>{rocket.rocket_name}</h1>
@@ -24,4 +24,4 @@ const mapStateToProps = (state: IState) => {
     };
   }
 
-export default connect(mapStateToProps)(FullRocket);
+export default connect(mapStateToProps)(RocketDetails);

@@ -6,6 +6,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import * as actionCreators from '../store/actions';
 import { IState } from '../store/reducer';
 import SpaceShipList from '../components/SpaceShipList';
+import SpaceShipDetails from '../components/SpaceShipDetails/SpaceShipDetails';
 
 import './App.css';
 
@@ -23,6 +24,7 @@ class App extends Component<Props> {
         <button onClick={this.props.showRockets}>Rockets</button>
         <button onClick={this.props.showDragons}>Dragons</button>
         <SpaceShipList />
+        <SpaceShipDetails />
       </div>
     );
   }
