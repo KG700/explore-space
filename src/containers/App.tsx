@@ -36,13 +36,13 @@ class App extends Component<Props> {
       }}
     >
       {/* <div className="logo" /> */}
-      <div className="logo-container"><h1>Explore Space!</h1></div>
+      <div className="logo-container"><h1>Explore Space</h1></div>
       <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
         <Menu.Item key="1" onClick={this.props.showRockets}>
-          Rockets
+          🚀 Rockets
         </Menu.Item>
         <Menu.Item key="2" onClick={this.props.showDragons}>
-          Dragons
+          🛰 Dragons
         </Menu.Item>
       </Menu>
     </Sider>

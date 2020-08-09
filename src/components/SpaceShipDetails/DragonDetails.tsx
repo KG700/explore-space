@@ -5,7 +5,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import * as actionCreators from '../../store/actions';
 
 import { IState } from '../../store/reducer';
-import { Modal} from 'antd';
+import { Modal, Statistic, Row, Col, Divider } from 'antd';
 
 type Props = {
     dragon: any,
@@ -16,16 +16,37 @@ type Props = {
 const DragonDetails = ({ dragon, isVisible, onClickNotVisible }: Props) => {
     return (
         <div>
-            <Modal
-                title={dragon.name}
-                visible={isVisible}
-                cancelButtonProps={{ style: { display: 'none' } }}
-                destroyOnClose={true}
-                onOk={onClickNotVisible}
-                onCancel={onClickNotVisible}
-            >
-                <p>{dragon.description}</p>
-            </Modal>
+            { Object.keys(dragon).length > 0 &&
+                <Modal
+                    title={dragon.name}
+                    visible={isVisible}
+                    cancelButtonProps={{ style: { display: 'none' } }}
+                    destroyOnClose={true}
+                    onOk={onClickNotVisible}
+                    onCancel={onClickNotVisible}
+                >
+                        <Row gutter={16}>
+                            <Col span={8}>
+                                <Statistic 
+                                    title="First Flight" value={dragon.first_flight}
+                                />
+                            </Col>
+                            <Col span={8}>
+                                <Statistic 
+                                    title="Height (with trunk)" value={dragon.height_w_trunk.meters + 'm'}
+                                />
+                            </Col> 
+                            <Col span={8}>
+                                <Statistic 
+                                    title="Dry Mass" value={dragon.dry_mass_kg + 'kg'}
+                                />
+                            </Col> 
+                        </Row>
+                    
+                        <Divider />
+                    <p>{dragon.description}</p>
+                </Modal>
+            }
         </div>
     )  
 }

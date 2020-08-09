@@ -7,3 +7,9 @@ ul {
 .logo-container {
  height: 100px; 
 }
+
+.logo-container h1 {
+  color: white;
+  font-size: x-large;
+  margin: 15px;
+}

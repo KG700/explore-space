@@ -46,7 +46,7 @@ const RocketDetails = ({ rocket, isVisible, onClickNotVisible }: Props) => {
                     <Row gutter={16}>
                         <Col span={12}>
                             <Statistic 
-                                title="First Flight" value={rocket.first_flight}
+                                title="First Flight Year" value={rocket.first_flight}
                             />
                         </Col>
                         <Col span={12}>

@@ -40,6 +40,7 @@ This application has a React frontend with Typescript. Redux has been used for s
 - Make card size for each space ship list item a consistent dimension
 - Add a logo
 - Add a favicon
+- Format first flight dates to dd mmm yyyy format
 
 #### Test Improvements
 
