@@ -11,23 +11,24 @@ type Props = {
     rockets: any[],
     dragons: any[],
     // onSelectedRocket: (event: React.MouseEvent<HTMLElement>) => void
+    onSelectedRocket: (arg0: string) => {}
 }
 
-const SpaceShipList = ({ selected, rockets, dragons }: Props) => {
+const SpaceShipList = ({ selected, rockets, dragons, onSelectedRocket }: Props) => {
     let spaceShipList: JSX.Element[] | null;
     spaceShipList = null;
     switch ( selected ) {
       case SpaceShips.ROCKET:
         spaceShipList = rockets.map(rocket => {
           return (
-            <li onClick={() => {} } > { rocket.rocket_name } </li>
+            <li onClick={() => onSelectedRocket(rocket.rocket_id) } > { rocket.rocket_name } </li>
           ) 
         })
         break;
       case SpaceShips.DRAGON:
         spaceShipList = dragons.map(dragon => {
           return (
-            <li onClick={() => {} } > { dragon.name } </li>
+            <li> { dragon.name } </li>
           ) 
         })
         break;
