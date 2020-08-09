@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { IState, SpaceShips } from '../store/reducer';
+import { IState, SpaceShips } from '../../store/reducer';
 import './WelcomeMessage.css';
 
 type Props = {

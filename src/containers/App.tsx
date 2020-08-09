@@ -7,10 +7,10 @@ import * as actionCreators from '../store/actions';
 import { IState } from '../store/reducer';
 import { Layout, Menu } from 'antd';
 
-import WelcomeMessage from '../components/WecomeMessage';
-import SpaceShipList from '../components/SpaceShipList';
-import DragonDetails from '../components/SpaceShipDetails/DragonDetails';
-import RocketDetails from '../components/SpaceShipDetails/RocketDetails';
+import WelcomeMessage from '../components/WelcomeMessage/WecomeMessage';
+import SpaceShipList from '../components/SpaceShipList/SpaceShipList';
+import DragonDetails from '../components/DragonDetails/DragonDetails';
+import RocketDetails from '../components/RocketDetails/RocketDetails';
 import './App.css';
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -26,14 +26,14 @@ class App extends Component<Props> {
     
     return (
       <Layout>
-    <Sider
-      style={{
-        overflow: 'auto',
-        height: '100vh',
-        position: 'fixed',
-        left: 0,
-      }}
-    >
+        <Sider
+          style={{
+            overflow: 'auto',
+            height: '100vh',
+            position: 'fixed',
+            left: 0,
+          }}
+        >
       {/* <div className="logo" /> */}
       <div className="logo-container"><h1>Space Explorer</h1></div>
       <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>

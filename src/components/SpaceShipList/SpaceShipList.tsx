@@ -3,8 +3,8 @@ import { Action } from 'redux';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 
-import * as actionCreators from '../store/actions';
-import { IState, SpaceShips } from '../store/reducer';
+import * as actionCreators from '../../store/actions';
+import { IState, SpaceShips } from '../../store/reducer';
 
 import { Card } from 'antd';
 import './SpaceShipList.css';
