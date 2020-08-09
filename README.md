@@ -41,6 +41,8 @@ This application has a React frontend with Typescript. Redux has been used for s
 - Add a logo
 - Add a favicon
 - Format first flight dates to dd mmm yyyy format
+- Add pictures to the detail modals
+- Convert css files to modular style
 
 #### Test Improvements
 

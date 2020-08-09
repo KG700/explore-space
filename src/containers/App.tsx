@@ -5,11 +5,10 @@ import { ThunkDispatch } from 'redux-thunk';
 
 import * as actionCreators from '../store/actions';
 import { IState } from '../store/reducer';
-import SpaceShipList from '../components/SpaceShipList';
-import SpaceShipDetails from '../components/SpaceShipDetails/SpaceShipDetails';
-import { Button, Row, Col } from 'antd';
 import { Layout, Menu } from 'antd';
 
+import WelcomeMessage from '../components/WecomeMessage';
+import SpaceShipList from '../components/SpaceShipList';
 import DragonDetails from '../components/SpaceShipDetails/DragonDetails';
 import RocketDetails from '../components/SpaceShipDetails/RocketDetails';
 import './App.css';
@@ -36,7 +35,7 @@ class App extends Component<Props> {
       }}
     >
       {/* <div className="logo" /> */}
-      <div className="logo-container"><h1>Explore Space</h1></div>
+      <div className="logo-container"><h1>Space Explorer</h1></div>
       <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
         <Menu.Item key="1" onClick={this.props.showRockets}>
           🚀 Rockets
@@ -49,6 +48,7 @@ class App extends Component<Props> {
     <Layout className="site-layout" style={{ marginLeft: 200 }}>
       <Header className="site-layout-background" style={{ padding: 0 }} />
       <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+        <WelcomeMessage />
         <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
           <SpaceShipList />
         </div>
