@@ -5,7 +5,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import * as actionCreators from '../../store/actions';
 
 import { IState } from '../../store/reducer';
-import { Modal, Statistic, Row, Col } from 'antd';
+import { Modal, Statistic, Row, Col, Divider } from 'antd';
 
 type Props = {
     rocket: any,
@@ -26,18 +26,6 @@ const RocketDetails = ({ rocket, isVisible, onClickNotVisible }: Props) => {
                     onCancel={onClickNotVisible}
                 >
                     <Row gutter={16}>
-                        <Col span={12}>
-                            <Statistic 
-                                title="First Flight" value={rocket.first_flight}
-                            />
-                        </Col>
-                        <Col span={12}>
-                            <Statistic 
-                                title="Country" value={rocket.country}
-                            />
-                        </Col>
-                    </Row>
-                    <Row gutter={16}>
                         <Col span={8}>
                             <Statistic 
                                 title="Cost/launch" value={'$' + rocket.cost_per_launch/1000000 + 'm'}
@@ -54,6 +42,20 @@ const RocketDetails = ({ rocket, isVisible, onClickNotVisible }: Props) => {
                             />
                         </Col> 
                     </Row>
+                    <Divider />
+                    <Row gutter={16}>
+                        <Col span={12}>
+                            <Statistic 
+                                title="First Flight" value={rocket.first_flight}
+                            />
+                        </Col>
+                        <Col span={12}>
+                            <Statistic 
+                                title="Country" value={rocket.country}
+                            />
+                        </Col>
+                    </Row>
+                    <Divider />
                     <Row>
                         <Col span={24}>
                             <p>{rocket.description}</p>

@@ -30,11 +30,9 @@ const initialState: IState = {
 }
 
 const reducer = (state = initialState, action: Action) => {
-    console.log(action.type)
     switch (action.type) {
         case actionTypes.SELECTED_ROCKET:
             const selectedRocket = state.rockets.filter((rocket) => rocket.rocket_id === action.id)[0]
-            console.log(selectedRocket);
             return {
                 ...state,
                 selectedRocket: selectedRocket,
@@ -42,7 +40,6 @@ const reducer = (state = initialState, action: Action) => {
             }
         case actionTypes.SELECTED_DRAGON:
             const selectedDragon = state.dragons.filter((dragon) => dragon.id === action.id)[0]
-            console.log(selectedDragon);
             return {
                 ...state,
                 selectedDragon: selectedDragon,
