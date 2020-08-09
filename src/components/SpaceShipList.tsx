@@ -6,6 +6,10 @@ import { ThunkDispatch } from 'redux-thunk';
 import * as actionCreators from '../store/actions';
 import { IState, SpaceShips } from '../store/reducer';
 
+import { Card } from 'antd';
+
+const { Meta } = Card
+
 type Props = {
     selected: SpaceShips,
     rockets: any[],
@@ -21,7 +25,19 @@ const SpaceShipList = ({ selected, rockets, dragons, onSelectedRocket, onSelecte
       case SpaceShips.ROCKET:
         spaceShipList = rockets.map(rocket => {
           return (
-            <li onClick={() => onSelectedRocket(rocket.rocket_id) }> { rocket.rocket_name } </li>
+            <li 
+              onClick={() => onSelectedRocket(rocket.rocket_id) }> 
+              <Card
+                hoverable
+                style={{ width: 240 }}
+                cover={<img alt="rocket" src={rocket.flickr_images} />}
+              >
+                <Meta
+                  title={rocket.rocket_name}
+                />
+                  
+              </Card>
+            </li>
           ) 
         })
         break;
