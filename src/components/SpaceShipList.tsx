@@ -60,7 +60,7 @@ const mapStateToProps = (state: IState) => {
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<IState, void, Action>) => {
 return {
-    onSelectedRocket: (id: string) => dispatch(actionCreators.select(id))
+    onSelectedRocket: (id: string) => dispatch(actionCreators.selectRocket(id))
 };
 }
 

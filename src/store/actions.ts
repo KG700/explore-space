@@ -3,7 +3,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { Action } from 'redux';
 import { IState } from './reducer';
 
-export const SELECT = 'SELECT';
+export const SELECT_ROCKET = 'SELECT_ROCKET';
 export const SHOW_ROCKETS = 'SHOW_ROCKETS';
 export const SHOW_DRAGONS = 'SHOW_DRAGONS';
 
@@ -39,9 +39,9 @@ export const showDragons = () => {
     }
 }
 
-export const select = ( id: string ) => {
+export const selectRocket = ( id: string ) => {
     return {
-        type: SELECT,
+        type: SELECT_ROCKET,
         id: id
     }
 };
