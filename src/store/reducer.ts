@@ -15,7 +15,8 @@ export interface IState {
     dragons: any[],
     selectedRocket: any,
     selectedDragon: any,
-    isVisibleDragonDetail: boolean
+    isVisibleDragonDetail: boolean,
+    isVisibleRocketDetail: boolean
 }
 
 const initialState: IState = {
@@ -24,7 +25,8 @@ const initialState: IState = {
     dragons: [],
     selectedRocket: {},
     selectedDragon: {},
-    isVisibleDragonDetail: false
+    isVisibleDragonDetail: false,
+    isVisibleRocketDetail: false
 }
 
 const reducer = (state = initialState, action: Action) => {
@@ -35,7 +37,8 @@ const reducer = (state = initialState, action: Action) => {
             console.log(selectedRocket);
             return {
                 ...state,
-                selectedRocket: selectedRocket
+                selectedRocket: selectedRocket,
+                isVisibleRocketDetail: !state.isVisibleRocketDetail
             }
         case actionTypes.SELECTED_DRAGON:
             const selectedDragon = state.dragons.filter((dragon) => dragon.id === action.id)[0]

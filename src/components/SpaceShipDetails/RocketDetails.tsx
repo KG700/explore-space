@@ -2,31 +2,31 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { IState } from '../../store/reducer';
+import { Modal} from 'antd';
 
 type Props = {
     rocket: any,
+    isVisible: boolean,
 }
 
-const RocketDetails = ({ rocket }: Props) => {
+const RocketDetails = ({ rocket, isVisible }: Props) => {
     return (
         <div>
-            {
-                Object.keys(rocket).length > 0
-                &&
-                <div>
-                    <h1>{rocket.rocket_name}</h1>
-                    <p>{rocket.description}</p>
-                    <h2>Quick Facts</h2>
-                    <p>Cost per launch: ${rocket.cost_per_launch}</p>
-                </div>
-            }
+            <Modal
+                title={rocket.rocket_name}
+                visible={isVisible}
+                cancelButtonProps={{ style: { display: 'none' } }}
+            >
+                <p>{rocket.description}</p>
+            </Modal>
         </div>
     )  
 }
 
 const mapStateToProps = (state: IState) => {
     return {
-      rocket: state.selectedRocket
+      rocket: state.selectedRocket,
+      isVisible: state.isVisibleRocketDetail
     };
   }
 
