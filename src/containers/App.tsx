@@ -7,8 +7,12 @@ import * as actionCreators from '../store/actions';
 import { IState } from '../store/reducer';
 import SpaceShipList from '../components/SpaceShipList';
 import SpaceShipDetails from '../components/SpaceShipDetails/SpaceShipDetails';
-import { Button } from 'antd';
+import { Button, Row, Col } from 'antd';
+import { Layout, Menu } from 'antd';
+
 import './App.css';
+
+const { Header, Content, Footer, Sider } = Layout;
 
 type Props = {
   showRockets: () => void,
@@ -20,12 +24,37 @@ class App extends Component<Props> {
   render () {
     
     return (
-      <div className="App">
-        <Button type="primary" onClick={this.props.showRockets}>Rockets</Button>
-        <Button type="primary" onClick={this.props.showDragons}>Dragons</Button>
-        <SpaceShipList />
-        <SpaceShipDetails />
-      </div>
+      <Layout>
+    <Sider
+      style={{
+        overflow: 'auto',
+        height: '100vh',
+        position: 'fixed',
+        left: 0,
+      }}
+    >
+      {/* <div className="logo" /> */}
+      <div className="logo-container"><h1>Explore Space!</h1></div>
+      <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
+        <Menu.Item key="1" onClick={this.props.showRockets}>
+          Rockets
+        </Menu.Item>
+        <Menu.Item key="2" onClick={this.props.showDragons}>
+          Dragons
+        </Menu.Item>
+      </Menu>
+    </Sider>
+    <Layout className="site-layout" style={{ marginLeft: 200 }}>
+      <Header className="site-layout-background" style={{ padding: 0 }} />
+      <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+        <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
+          <SpaceShipList />
+        </div>
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>Data from API: Space X</Footer>
+    </Layout>
+  </Layout>
+
     );
   }
 }
