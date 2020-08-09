@@ -7,6 +7,7 @@ import * as actionCreators from '../store/actions';
 import { IState, SpaceShips } from '../store/reducer';
 
 import { Card } from 'antd';
+import './SpaceShipList.css';
 
 const { Meta } = Card
 
@@ -29,7 +30,7 @@ const SpaceShipList = ({ selected, rockets, dragons, onSelectedRocket, onSelecte
               onClick={() => onSelectedRocket(rocket.rocket_id) }> 
               <Card
                 hoverable
-                style={{ width: 240 }}
+                style={{ width: 300, margin: 10 }}
                 cover={<img alt="rocket" src={rocket.flickr_images} />}
               >
                 <Meta
@@ -54,7 +55,7 @@ const SpaceShipList = ({ selected, rockets, dragons, onSelectedRocket, onSelecte
             {
                 selected !== SpaceShips.BLANK
                 ?
-                <ul>
+                <ul className="spaceship-list">
                     {spaceShipList}
                 </ul>
                 :

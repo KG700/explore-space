@@ -28,6 +28,7 @@ This application has a React frontend with Typescript. Redux has been used for s
 - react-redux
 - redux-thunk
 - axios
+- antd
 
 ### Future Improvements
 #### Code Improvements
