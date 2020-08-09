@@ -5,7 +5,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import * as actionCreators from '../../store/actions';
 
 import { IState } from '../../store/reducer';
-import { Modal, Button } from 'antd';
+import { Modal} from 'antd';
 
 type Props = {
     dragon: any,
@@ -26,16 +26,6 @@ const DragonDetails = ({ dragon, isVisible, onClickNotVisible }: Props) => {
             >
                 <p>{dragon.description}</p>
             </Modal>
-            {/* {
-                Object.keys(dragon).length > 0
-                &&
-                
-                <div>
-                    <h1>{dragon.name}</h1>
-                    <p>{dragon.description}</p>
-                    <h2>Quick Facts:</h2>
-                </div>
-            } */}
         </div>
     )  
 }
