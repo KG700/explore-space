@@ -37,6 +37,7 @@ This application has a React frontend with Typescript. Redux has been used for s
 - Add router application so url updates with /rockets or /dragons when selected.
 
 #### Design Improvements
+- Make card size for each space ship list item a consistent dimension
 - Add a logo
 - Add a favicon
 

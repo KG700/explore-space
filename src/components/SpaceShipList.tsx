@@ -45,7 +45,17 @@ const SpaceShipList = ({ selected, rockets, dragons, onSelectedRocket, onSelecte
       case SpaceShips.DRAGON:
         spaceShipList = dragons.map(dragon => {
           return (
-            <li onClick={() => onSelectedDragon(dragon.id) }> { dragon.name } </li>
+            <li onClick={() => onSelectedDragon(dragon.id) }>
+                <Card
+                  hoverable
+                  style={{ width: 300, margin: 10 }}
+                  cover={<img alt="rocket" src={dragon.flickr_images} />}
+                >
+                  <Meta 
+                    title={ dragon.name } 
+                  />
+              </Card>
+            </li>
           ) 
         })
         break;
