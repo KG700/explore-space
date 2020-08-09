@@ -7,7 +7,7 @@ import * as actionCreators from '../store/actions';
 import { IState } from '../store/reducer';
 import SpaceShipList from '../components/SpaceShipList';
 import SpaceShipDetails from '../components/SpaceShipDetails/SpaceShipDetails';
-
+import { Button } from 'antd';
 import './App.css';
 
 type Props = {
@@ -21,8 +21,8 @@ class App extends Component<Props> {
     
     return (
       <div className="App">
-        <button onClick={this.props.showRockets}>Rockets</button>
-        <button onClick={this.props.showDragons}>Dragons</button>
+        <Button type="primary" onClick={this.props.showRockets}>Rockets</Button>
+        <Button type="primary" onClick={this.props.showDragons}>Dragons</Button>
         <SpaceShipList />
         <SpaceShipDetails />
       </div>
