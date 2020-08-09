@@ -14,7 +14,8 @@ export interface IState {
     rockets: any[],
     dragons: any[],
     selectedRocket: any,
-    selectedDragon: any
+    selectedDragon: any,
+    isVisibleDragonDetail: boolean
 }
 
 const initialState: IState = {
@@ -22,7 +23,8 @@ const initialState: IState = {
     rockets: [],
     dragons: [],
     selectedRocket: {},
-    selectedDragon: {}
+    selectedDragon: {},
+    isVisibleDragonDetail: false
 }
 
 const reducer = (state = initialState, action: Action) => {
