@@ -10,9 +10,16 @@ type Props = {
 const DragonDetails = ({ dragon }: Props) => {
     return (
         <div>
-            <h1>{dragon.name}</h1>
-            <p>{dragon.description}</p>
-            <h2>Quick Facts:</h2>
+            {
+                Object.keys(dragon).length > 0
+                &&
+                
+                <div>
+                    <h1>{dragon.name}</h1>
+                    <p>{dragon.description}</p>
+                    <h2>Quick Facts:</h2>
+                </div>
+            }
         </div>
     )  
 }

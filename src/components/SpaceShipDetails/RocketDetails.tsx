@@ -10,10 +10,16 @@ type Props = {
 const RocketDetails = ({ rocket }: Props) => {
     return (
         <div>
-            <h1>{rocket.rocket_name}</h1>
-            <p>{rocket.description}</p>
-            <h2>Quick Facts</h2>
-            <p>Cost per launch: ${rocket.cost_per_launch}</p>
+            {
+                Object.keys(rocket).length > 0
+                &&
+                <div>
+                    <h1>{rocket.rocket_name}</h1>
+                    <p>{rocket.description}</p>
+                    <h2>Quick Facts</h2>
+                    <p>Cost per launch: ${rocket.cost_per_launch}</p>
+                </div>
+            }
         </div>
     )  
 }
