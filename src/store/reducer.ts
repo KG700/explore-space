@@ -65,6 +65,11 @@ const reducer = (state = initialState, action: Action) => {
                 ...state,
                 isVisibleDragonDetail: false
             }
+        case actionTypes.HIDE_ROCKET_DETAIL:
+            return {
+                ...state,
+                isVisibleRocketDetail: false
+            }
 
     }
     return state;

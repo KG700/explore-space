@@ -19,9 +19,9 @@ const DragonDetails = ({ dragon, isVisible, onClickNotVisible }: Props) => {
             <Modal
                 title={dragon.name}
                 visible={isVisible}
-                onOk={onClickNotVisible}
-                destroyOnClose={true}
                 cancelButtonProps={{ style: { display: 'none' } }}
+                destroyOnClose={true}
+                onOk={onClickNotVisible}
                 onCancel={onClickNotVisible}
             >
                 <p>{dragon.description}</p>
