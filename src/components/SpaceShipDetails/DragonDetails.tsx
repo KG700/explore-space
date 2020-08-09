@@ -9,17 +9,20 @@ import { Modal, Button } from 'antd';
 
 type Props = {
     dragon: any,
-    isVisible: boolean
+    isVisible: boolean,
+    onClickNotVisible: () => void
 }
 
-const DragonDetails = ({ dragon, isVisible }: Props) => {
+const DragonDetails = ({ dragon, isVisible, onClickNotVisible }: Props) => {
     return (
         <div>
             <Modal
                 title={dragon.name}
                 visible={isVisible}
-                // onOk={this.handleOk}
-                // onCancel={this.handleCancel}
+                onOk={onClickNotVisible}
+                destroyOnClose={true}
+                cancelButtonProps={{ style: { display: 'none' } }}
+                onCancel={onClickNotVisible}
             >
                 <p>{dragon.description}</p>
             </Modal>
@@ -46,7 +49,7 @@ const mapStateToProps = (state: IState) => {
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<IState, void, Action>) => {
     return {
-        onClickVisible: () => dispatch(actionCreators.visibleDragonDetail()),
+        onClickNotVisible: () => dispatch(actionCreators.hideDragonDetail()),
     };
 }
 

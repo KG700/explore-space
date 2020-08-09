@@ -57,12 +57,11 @@ const reducer = (state = initialState, action: Action) => {
                 dragons: action.dragons,
                 selected: SpaceShips.DRAGON
             }
-        // case actionTypes.VISIBLE_DRAGON_DETAIL:
-        //     console.log('updating visibility');
-        //     return {
-        //         ...state,
-        //         isVisibleDragonDetail: !state.isVisibleDragonDetail
-        //     }
+        case actionTypes.HIDE_DRAGON_DETAIL:
+            return {
+                ...state,
+                isVisibleDragonDetail: false
+            }
 
     }
     return state;

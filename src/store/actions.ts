@@ -7,7 +7,7 @@ export const SELECTED_ROCKET = 'SELECTED_ROCKET';
 export const SELECTED_DRAGON = 'SELECTED_DRAGON';
 export const SHOW_ROCKETS = 'SHOW_ROCKETS';
 export const SHOW_DRAGONS = 'SHOW_DRAGONS';
-export const VISIBLE_DRAGON_DETAIL = 'VISIBLE_DRAGON_DETAIL';
+export const HIDE_DRAGON_DETAIL = 'HIDE_DRAGON_DETAIL';
 
 const saveRockets = ( rockets: any ) => {
     return {
@@ -55,8 +55,8 @@ export const selectedDragon= ( id: string ) => {
     }
 };
 
-export const visibleDragonDetail= () => {
+export const hideDragonDetail= () => {
     return {
-        type: VISIBLE_DRAGON_DETAIL
+        type: HIDE_DRAGON_DETAIL
     }
 };
