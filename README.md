@@ -1,11 +1,11 @@
 # Explore SpaceX 🚀
 
-Explore spaceships ... See a list of rockets and dragons. Click on each any to find out more about it.
+Explore the spaceships that we've sent up to space. Find out when they first launched, how much it cost and how heavy they are.
 
 ### Getting Started
 Clone this repository
 ````
-git clone ...
+git clone git@github.com:KG700/explore-space.git
 ````
 
 Ensure you have [npm installed](https://www.npmjs.com/get-npm) and install dependencies
@@ -20,8 +20,9 @@ npm start
 
 Open http://localhost:3000/ in your browser to view the app
 
-### Tech Stack and Dependencies
-This application has a React frontend with Typescript. Redux has been used for state management.
+
+### Technology and Dependencies
+This application has a React frontend with Typescript. Redux has been used for state management. The data is sourced from the [Space X open api](https://docs.spacexdata.com/?version=latest) using axios to make the connection. The styling has been done using [Ant Design](https://ant.design/).
 
 #### Dependencies:
 - redux
@@ -46,7 +47,7 @@ This application has a React frontend with Typescript. Redux has been used for s
 - Convert css files to modular style.
 
 #### Test Improvements
-- Learn how to test applications with redux then test:
+- Learn how to test applications with redux using Jest and Enzyme, then test:
 - [ ] App: WelcomeMessage displays when page is first loaded
 - [ ] App: Rocket cards display when Rockets is selected
 - [ ] App: Dragon cards display when Dragons is selected
