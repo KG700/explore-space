@@ -1,6 +1,6 @@
-# Explore SpaceX 🚀
+# Explore Space 🚀
 
-Explore the spaceships that we've sent up to space. Find out when they first launched, how much it cost and how heavy they are.
+Explore the spaceships that we've sent up to space. Find out when they first launched, how much it cost and how heavy they are and more!
 
 ### Getting Started
 Clone this repository
@@ -22,7 +22,7 @@ Open http://localhost:3000/ in your browser to view the app
 
 
 ### Technology and Dependencies
-This application has a React frontend with Typescript. Redux has been used for state management. The data is sourced from the [Space X open api](https://docs.spacexdata.com/?version=latest) using axios to make the connection. The styling has been done using [Ant Design](https://ant.design/).
+This application has a React frontend with Typescript. Redux has been used for state management. The data is sourced from the [Space X's open API](https://docs.spacexdata.com/?version=latest) using axios to make the connection. The styling has been done using [Ant Design](https://ant.design/).
 
 #### Dependencies:
 - redux
